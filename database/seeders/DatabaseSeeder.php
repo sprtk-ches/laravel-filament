@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $user1 = User::factory()->create([
+             'name' => 'User with both roles',
+             'email' => 'test1@example.com',
+         ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Test User 2',
+            'email' => 'test2@example.com',
+        ]);
+
+        Role::create([
+            'name' => 'Role 1'
+        ]);
+
+        Role::create([
+            'name' => 'Role 2'
+        ]);
+
+        $user1->roles()->sync(Role::pluck('id'));
     }
 }

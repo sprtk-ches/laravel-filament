@@ -38,6 +38,7 @@ class EditUser extends Component implements HasForms
                         Forms\Components\Select::make('role_id')
                             ->relationship('role', 'name'),
                         Forms\Components\Checkbox::make('is_active'),
+                        Forms\Components\Checkbox::make('is_something_else'),
                     ])
             ])
             ->statePath('data')

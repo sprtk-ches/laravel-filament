@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Livewire\EditUser;
+use App\Livewire\UserList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/users', UserList::class);
 Route::get('/{userId?}', EditUser::class);
+

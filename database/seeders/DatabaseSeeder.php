@@ -29,8 +29,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'test2@example.com',
         ]);
 
-        User::factory()->times(20)->create();
-
         Role::create([
             'name' => 'Role 1'
         ]);

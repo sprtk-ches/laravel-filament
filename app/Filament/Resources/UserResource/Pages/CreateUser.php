@@ -23,7 +23,6 @@ class CreateUser extends CreateRecord
         return [
             Step::make('Step 1')
                 ->schema([
-                    TextInput::make('name'),
                     Toggle::make('toggle')
                         ->dehydrated(false)
                         ->label('Show step 2')
@@ -36,7 +35,6 @@ class CreateUser extends CreateRecord
                 ]),
             Step::make('Step 3')
                 ->schema([
-                    TextInput::make('password'),
                     SpatieMediaLibraryFileUpload::make('media')
                         ->image()
                         ->multiple()
